@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 
 
-const Header = () => {
+const Header = ({cartAllProduct}) => {
+  console.log(cartAllProduct.length);
+  
   return (
     <div>
       <nav className=" flex  bg-blue-400 p-5 justify-between">
@@ -12,8 +14,9 @@ const Header = () => {
           <li className="pointer">About</li>
           <li className="pointer">Contact</li>
         </ul>
-        <ul>
-            <NavLink to={"/cart"} className="h-10 text-3xl"><FaShoppingCart /></NavLink>
+        <ul className="flex  ">
+            <NavLink to={"/cart"} className="h-10 text-3xl"><FaShoppingCart /> </NavLink>
+            <sup className=" text-red-700 font-bold">{cartAllProduct.length}</sup>
         </ul>
       </nav>
     </div>

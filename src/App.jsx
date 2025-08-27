@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header></Header>
+        <Header cartAllProduct = {cartAllProduct}></Header>
         <Hero></Hero>
         <Routes>
           <Route

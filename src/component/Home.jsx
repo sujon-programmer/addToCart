@@ -1,11 +1,12 @@
 import React from "react";
 import productList from "./data";
-import { ToastContainer, toast } from "react-toastify";
+import Popup from "reactjs-popup";
+import toast, { Toaster } from "react-hot-toast";
 
+const notify = () => toast("Product Added to Cart.");
 const Home = ({ setProductId }) => {
   const handleAddToCart = (id) => {
     setProductId(id);
-    toast.success("Product Added to Cart Successfully" );
   };
   return (
     <div className="grid gap-5 md:grid-cols-5 sm:grid-cols-5 grid-cols-5">
@@ -26,13 +27,23 @@ const Home = ({ setProductId }) => {
               <div>
                 <p>{product.price} tk</p>
                 <p>{product.space}</p>
+
                 <button
+                  className="bg-blue-500 p-2 text-center rounded-2xl cursor-pointer"
+                  onClick={() => {
+                    handleAddToCart(product.id);
+                    notify();
+                  }}
+                >
+                  Add To Cart
+                </button>
+                <Toaster />
+                {/* <button
                   className="bg-blue-500 p-2 text-center rounded-2xl pointer "
                   onClick={() => handleAddToCart(product.id)}
                 >
                   Add To Cart
-                </button>
-                <ToastContainer />
+                </button> */}
               </div>
             </div>
           </div>
